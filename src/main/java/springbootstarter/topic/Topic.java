@@ -1,25 +1,36 @@
 package springbootstarter.topic;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "topic")
 public class Topic {
-    private  String id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  Integer id;
+
+    @Column
     private  String name;
+
+    @Column
     private  String description;
 
     public Topic(){
 
     }
 
-    public Topic(String id, String name, String description) {
+    public Topic(Integer id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -42,7 +53,7 @@ public class Topic {
     @Override
     public String toString() {
         return "Topic{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
